@@ -1,8 +1,9 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>القرآن الكريم</title>
   <link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
   <style>
@@ -10,39 +11,52 @@
       margin: 0;
       padding: 0;
       font-family: 'Amiri', serif;
-      color: #fff;
-      background: radial-gradient(#a1c4fd, #c2e9fb);
+      background: #0d1b2a;
+      color: white;
       overflow-x: hidden;
     }
 
-    /* خلفية نجوم متحركة */
-    .stars {
+    /* خلفية نجوم بـ CSS */
+    .stars, .stars2, .stars3 {
       position: fixed;
       width: 100%;
       height: 100%;
+      top: 0; left: 0;
       background: transparent;
       z-index: 0;
-      overflow: hidden;
     }
 
-    .stars::after {
-      content: '';
+    .stars:after, .stars2:after, .stars3:after {
+      content: " ";
       position: absolute;
-      width: 200%;
-      height: 200%;
-      background: transparent url('https://raw.githubusercontent.com/JulianLaval/canvas-particle-network/master/demo/stars.png') repeat;
-      animation: moveStars 60s linear infinite;
+      width: 100%;
+      height: 100%;
+      background-image: radial-gradient(white 1px, transparent 1px);
+      background-size: 2px 2px;
+      animation: animStar 200s linear infinite;
     }
 
-    @keyframes moveStars {
-      from { transform: translate(0, 0); }
-      to { transform: translate(-500px, -500px); }
+    .stars2:after {
+      background-size: 3px 3px;
+      opacity: 0.5;
+      animation-duration: 400s;
+    }
+
+    .stars3:after {
+      background-size: 4px 4px;
+      opacity: 0.2;
+      animation-duration: 600s;
+    }
+
+    @keyframes animStar {
+      from { transform: translateY(0); }
+      to { transform: translateY(-2000px); }
     }
 
     header {
       text-align: center;
       padding: 2rem;
-      background-color: rgba(0, 0, 50, 0.6);
+      background-color: rgba(0, 0, 50, 0.5);
       z-index: 2;
       position: relative;
     }
@@ -58,7 +72,7 @@
       padding: 2rem;
       max-width: 800px;
       margin: auto;
-      background-color: rgba(255,255,255,0.1);
+      background-color: rgba(255,255,255,0.05);
       border-radius: 15px;
     }
 
@@ -68,18 +82,20 @@
       gap: 1rem;
     }
 
-    .surah-name {
+    .surah-name a {
+      display: block;
       background: rgba(0, 0, 0, 0.3);
       padding: 1rem;
       border-radius: 10px;
       text-align: center;
       font-size: 1.5rem;
-      cursor: pointer;
+      color: white;
+      text-decoration: none;
       transition: background 0.3s;
     }
 
-    .surah-name:hover {
-      background: rgba(0, 0, 50, 0.5);
+    .surah-name a:hover {
+      background: rgba(0, 0, 50, 0.6);
     }
 
     footer {
@@ -95,6 +111,8 @@
 </head>
 <body>
   <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
 
   <header>
     <h1>القرآن الكريم</h1>
@@ -103,20 +121,20 @@
 
   <div class="container">
     <div class="surah-list">
-      <div class="surah-name">سورة الفاتحة</div>
-      <div class="surah-name">سورة البقرة</div>
-      <div class="surah-name">سورة آل عمران</div>
-      <div class="surah-name">سورة النساء</div>
-      <div class="surah-name">سورة المائدة</div>
-      <div class="surah-name">سورة الأنعام</div>
-      <div class="surah-name">سورة الأعراف</div>
-      <div class="surah-name">سورة الأنفال</div>
-      <div class="surah-name">سورة التوبة</div>
+      <div class="surah-name"><a href="#">سورة الفاتحة</a></div>
+      <div class="surah-name"><a href="#">سورة البقرة</a></div>
+      <div class="surah-name"><a href="#">سورة آل عمران</a></div>
+      <div class="surah-name"><a href="#">سورة النساء</a></div>
+      <div class="surah-name"><a href="#">سورة المائدة</a></div>
+      <div class="surah-name"><a href="#">سورة الأنعام</a></div>
+      <div class="surah-name"><a href="#">سورة الأعراف</a></div>
+      <div class="surah-name"><a href="#">سورة الأنفال</a></div>
+      <div class="surah-name"><a href="#">سورة التوبة</a></div>
     </div>
   </div>
 
   <footer>
-    &copy; 2025 - موقع القرآن الكريم - بإخراج بسيط وجميل لنشر كلام الله
+    &copy; 2025 - موقع القرآن الكريم - تصميم بنجوم متحركة وروابط قابلة للتطوير
   </footer>
 </body>
 </html>
